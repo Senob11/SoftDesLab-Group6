@@ -19,9 +19,10 @@ def mode(numbers):
     for num in numbers:
         freq[num] = freq.get(num, 0) + 1
     max_freq = max(freq.values())
-    for key, value in freq.items():
-        if value == max_freq:
-            return key
+    modes = [key for key, value in freq.items() if value == max_freq]
+    if len(modes) == len(numbers):
+        return None  
+    return modes[0] if len(modes) == 1 else modes
 
 def main():
     try:
@@ -37,3 +38,4 @@ def main():
         print("Invalid input. Please enter only numbers.")
 
 main()
+
