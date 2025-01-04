@@ -10,7 +10,7 @@ def median(numbers):
     mid = len(numbers) // 2
     if len(numbers) % 2 == 1:
         return numbers[mid]
-    return (numbers[mid] + numbers[mid - 1]) / 2
+    return (numbers[mid - 1] + numbers[mid]) / 2
 
 def mode(numbers):
     if not numbers:
@@ -28,14 +28,12 @@ def main():
         user_input = input("Enter numbers separated by spaces: ")
         numbers = [float(num) for num in user_input.split()]
         if not numbers:
-            print("No numbers provided. Exiting program.")
+            print("No numbers provided.")
             return
-        print(f"Numbers: {numbers}")
         print(f"Mean: {mean(numbers)}")
         print(f"Median: {median(numbers)}")
         print(f"Mode: {mode(numbers)}")
     except ValueError:
-        print("Error: Please enter valid numbers.")
+        print("Invalid input. Please enter only numbers.")
 
 main()
-
