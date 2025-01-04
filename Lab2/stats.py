@@ -24,11 +24,18 @@ def mode(numbers):
             return key
 
 def main():
-    numbers = [10, 20, 20, 30, 40, 50]
-    print(f"Numbers: {numbers}")
-    print(f"Mean: {mean(numbers)}")
-    print(f"Median: {median(numbers)}")
-    print(f"Mode: {mode(numbers)}")
+    try:
+        user_input = input("Enter numbers separated by spaces: ")
+        numbers = [float(num) for num in user_input.split()]
+        if not numbers:
+            print("No numbers provided. Exiting program.")
+            return
+        print(f"Numbers: {numbers}")
+        print(f"Mean: {mean(numbers)}")
+        print(f"Median: {median(numbers)}")
+        print(f"Mode: {mode(numbers)}")
+    except ValueError:
+        print("Error: Please enter valid numbers.")
 
 main()
 
